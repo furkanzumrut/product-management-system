@@ -34,7 +34,7 @@ public class ProductAddingFormController {
 
     /**
      * The ajax end point. Simply renders the posted parameter.
-     *
+     * Test
      * @return The view: 'home/post'
      */
     @RequestMapping(method = RequestMethod.POST)
