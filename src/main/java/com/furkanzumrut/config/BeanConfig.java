@@ -1,6 +1,5 @@
 package com.furkanzumrut.config;
 
-import com.furkanzumrut.dao.IProductDao;
 import com.furkanzumrut.dao.impl.ProductDao;
 import com.furkanzumrut.domain.Product;
 import com.furkanzumrut.service.ProductService;
