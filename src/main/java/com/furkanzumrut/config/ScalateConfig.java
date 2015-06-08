@@ -19,10 +19,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- * The scalate configuration. Initializes the template path, default extension and
- * layouts.
- * 
- * @author cnagel
+ * Created by furkanzumrut on 6/8/15.
  */
 @Configuration
 public class ScalateConfig {

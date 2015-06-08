@@ -12,19 +12,13 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 /**
- * A simple controller rendering an index view and an ajax request.
- *
- * @author cnagel
+ * Created by furkanzumrut on 6/8/15.
  */
 @Controller
 @RequestMapping("/products")
 public class ProductListController {
 
-    /**
-     * The index end point.
-     *
-     * @return The view: 'layout:home/index'
-     */
+
     @Autowired
     protected ProductService productService;
 
@@ -36,11 +30,7 @@ public class ProductListController {
         return mav;
     }
 
-    /**
-     * The ajax end point. Simply renders the posted parameter.
-     *
-     * @return The view: 'home/post'
-     */
+
 
 
 

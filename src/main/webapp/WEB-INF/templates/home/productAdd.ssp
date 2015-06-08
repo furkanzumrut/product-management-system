@@ -1,14 +1,27 @@
 <% attributes("title") = "Adding Product - Simple Product Management System" %>
-<form method="POST" action="productadd">
+
 <div class="form-group">
 <label>Product Name:</label>
-<input class="form-control" type="text" name="name"/>
+<input id="name" class="form-control" type="text" name="name" required >
 </div>
 <div class="form-group">
 <label>Product Price:</label>
-<input class="form-control" type="text" name="price"/>
+<input
+id="price"
+    required
+class="form-control"
+name="price"
+data-validation-required-message="Please fill out this field"
+    type="number"
+    data-validation-number-message="Must be a number"
+    />
+
 </div>
-<button class="btn btn-default" type="submit">ADD</button>
-</form>
+<button  class="btn btn-default" onclick="doAjaxPost()">ADD</button>
+
 <h2>Result:</h2>
-<ul id="posts"></ul>
+
+<div style="display: none" id="error" class="alert alert-danger error"></div>
+
+
+<div style="display: none" id="info" class="success alert alert-success"></div>

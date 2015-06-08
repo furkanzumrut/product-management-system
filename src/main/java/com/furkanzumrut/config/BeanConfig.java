@@ -7,8 +7,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -34,6 +36,21 @@ public class BeanConfig {
         properties.put("hbm2ddl.auto","create");
         properties.put("hibernate.current_session_context_class","thread");
         return properties;
+    }
+
+    @Bean(name = "validator")
+    public LocalValidatorFactoryBean validator()
+    {
+        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+        bean.setValidationMessageSource(messageSource());
+        return bean;
+    }
+
+    @Bean
+    public ReloadableResourceBundleMessageSource messageSource() {
+        ReloadableResourceBundleMessageSource resourceBundleMessageSource = new ReloadableResourceBundleMessageSource();
+        resourceBundleMessageSource.setBasename("classpath:/templates/validationMessages/messages");
+        return resourceBundleMessageSource;
     }
 
 //    @Autowired

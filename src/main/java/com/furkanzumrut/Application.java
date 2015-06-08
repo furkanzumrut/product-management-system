@@ -10,9 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * The standalone application running an own Server.
- *
- * @author cnagel
+ * Created by furkanzumrut on 6/8/15.
  */
 @Configuration
 @EnableAutoConfiguration

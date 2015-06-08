@@ -2,50 +2,56 @@
 package com.furkanzumrut.controller;
 
 import com.furkanzumrut.domain.Product;
+import com.furkanzumrut.events.JsonResponse;
 import com.furkanzumrut.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
 /**
- * A simple controller rendering an index view and an ajax request.
- *
- * @author cnagel
+ * Created by furkanzumrut on 6/8/15.
  */
 @Controller
-@RequestMapping("/productadd")
 public class ProductAddingFormController {
 
     @Autowired
     private ProductService productService;
-    /**
-     * The index end point.
-     *
-     * @return The view: 'layout:home/index'
-     */
-    @RequestMapping(method = RequestMethod.GET)
+
+    @RequestMapping(value="/productadd",method = RequestMethod.GET)
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView("layout:home/productAdd");
         return mav;
     }
 
-    /**
-     * The ajax end point. Simply renders the posted parameter.
-     * Test
-     * @return The view: 'home/post'
-     */
-    @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView post(@RequestParam("name") String name, @RequestParam("price") String price) {
-        ModelAndView mav = new ModelAndView("home/post");
-        Product p = new Product();
-        p.setName(name);
-        p.setPrice(Integer.parseInt(price));
-        productService.saveProduct(p);
-        mav.addObject("response", "Successfully Added.");
-        return mav;
+    @RequestMapping(value="/ajax/productadd",method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResponse post(@ModelAttribute(value="product") @Valid Product product, BindingResult result ) {
+        JsonResponse res = new JsonResponse();
+        ValidationUtils.rejectIfEmpty(result, "name", "Name can not be empty.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(result, "price", "Price not be empty");
+
+        List<Product> productList = new ArrayList<Product>();
+
+        if(!result.hasErrors()){
+            productService.saveProduct(product);
+            productList.add(product);
+            res.setStatus("SUCCESS");
+            res.setResult(productList);
+        }else{
+            res.setStatus("FAIL");
+            res.setResult(result.getAllErrors());
+        }
+
+        return res;
     }
 
 

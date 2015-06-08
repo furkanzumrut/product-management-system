@@ -7,19 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * A simple controller rendering an index view and an ajax request.
- * 
- * @author cnagel
+ * Created by furkanzumrut on 6/8/15.
  */
 @Controller
 @RequestMapping("/")
 public class HomeController {
 
-	/**
-	 * The index end point.
-	 * 
-	 * @return The view: 'layout:home/index'
-	 */
+
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView("layout:home/index");
