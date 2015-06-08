@@ -1,0 +1,33 @@
+<% attributes("title") = "Product List - Simple Product Management System" %>
+<% import com.furkanzumrut.domain.Product %>
+<% import java.util %>
+<%--//<%@ val names = Vector("Bob", "Fred", "Joe", "Julia", "Kim") %>--%>
+<%--//<%@ val product : Product %>--%>
+<%@ val products : java.util.List[Product] %>
+
+
+<div class="container">
+<div class="row">
+
+    <div class="col-md-13">
+        <table class="table table-list-search">
+            <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                #for (product <- products)
+                    <tr>
+                        <td>${product.getName}</td>
+                        <td>${product.getId}</td>
+                        <td>${product.getPrice}</td>
+                    </tr>
+                #end
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

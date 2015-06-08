@@ -1,0 +1,2 @@
+<%@ val response: String %>
+<li>${response}</li>

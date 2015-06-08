@@ -1,0 +1,14 @@
+<% attributes("title") = "Adding Product - Simple Product Management System" %>
+<form method="POST" action="productadd">
+<div class="form-group">
+<label>Product Name:</label>
+<input class="form-control" type="text" name="name"/>
+</div>
+<div class="form-group">
+<label>Product Price:</label>
+<input class="form-control" type="text" name="price"/>
+</div>
+<button class="btn btn-default" type="submit">ADD</button>
+</form>
+<h2>Result:</h2>
+<ul id="posts"></ul>
