@@ -1,5 +1,5 @@
 Product Management System
 ==============
-Scalate + Hibernate + Mysql + SpringMVC + SpringBoot
+Scalate + Hibernate + Mysql + Spring Mvc + SpringBoot
 
 
