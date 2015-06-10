@@ -1,6 +1,7 @@
 package com.furkanzumrut.domain;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -13,6 +14,7 @@ public class NamedEntity extends BaseEntity {
 
     @Column(name = "name")
     @Length(max = 128,min = 3)
+    @NotEmpty
     private String name;
 
 

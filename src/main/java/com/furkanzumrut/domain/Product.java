@@ -2,9 +2,9 @@ package com.furkanzumrut.domain;
 
 import com.sun.istack.internal.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
+import java.util.Collection;
 
 /**
  * Created by furkanzumrut on 6/7/15.
@@ -12,12 +12,16 @@ import javax.validation.constraints.Max;
 
 
 @Entity
-@Table(name="T_PRODUCT")
+@Table(name="t_product")
 public class Product extends NamedEntity{
 
     @NotNull
     @Max(10000000)
+    @Column(name="price")
     private int price;
+
+
+
 
     public Product(){
 
@@ -29,5 +33,17 @@ public class Product extends NamedEntity{
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+
+    @ManyToOne
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUserId(User user) {
+        this.user = user;
     }
 }

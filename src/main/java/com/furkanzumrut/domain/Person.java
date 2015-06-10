@@ -3,8 +3,7 @@ package com.furkanzumrut.domain;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
@@ -12,7 +11,10 @@ import javax.validation.constraints.Min;
  * Created by furkanzumrut on 6/7/15.
  */
 @MappedSuperclass
-public class Person extends BaseEntity {
+public class Person{
+
+
+
 
     @Column(name = "first_name")
     @NotEmpty

@@ -16,6 +16,7 @@
                     <th>Product Id</th>
                     <th>Product Name</th>
                     <th>Product Price</th>
+                    <th>Added By</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,7 @@
                         <td>${product.getName}</td>
                         <td>${product.getId}</td>
                         <td>${product.getPrice}</td>
+                        <td>${product.getUser.getFirstName} ${product.getUser.getLastName}</td>
                     </tr>
                 #end
             </tbody>
