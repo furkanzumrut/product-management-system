@@ -1,4 +1,4 @@
-<% attributes("title") = "Home Page - Simple Product Management System" %>
+<%  attributes("title") = "Home Page - Simple Product Management System" %>
 <div class="jumbotron">
 <h1>Welcome!</h1>
 <p>Click the buttons above to see, edit products.</p>

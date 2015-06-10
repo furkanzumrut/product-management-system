@@ -1,27 +1,34 @@
 <% attributes("title") = "Adding Product - Simple Product Management System" %>
-
-<div class="form-group">
-<label>Product Name:</label>
-<input id="name" class="form-control" type="text" name="name" required >
-</div>
-<div class="form-group">
-<label>Product Price:</label>
-<input
-id="price"
-    required
-class="form-control"
-name="price"
-data-validation-required-message="Please fill out this field"
-    type="number"
-    data-validation-number-message="Must be a number"
-    />
-
-</div>
-<button  class="btn btn-default" onclick="doAjaxPost()">ADD</button>
-
-<h2>Result:</h2>
-
 <div style="display: none" id="error" class="alert alert-danger error"></div>
-
-
 <div style="display: none" id="info" class="success alert alert-success"></div>
+<form class="form-horizontal" novalidate>
+<div class="control-group">
+<label class="control-label">Product Name:</label>
+<div class="controls">
+<input id="name"
+    required minlength="3" maxlength="128"
+    data-validation-required-message="Please fill out this field"
+    type="text"
+    />
+    <p class="help-block"></p>
+</div>
+</div>
+<div class="control-group">
+<label class="control-label">Product Price:</label>
+<div class="controls">
+    <input id="price"
+        required
+        data-validation-required-message="Please fill out this field"
+        type="text"
+        data-validation-number-message="Must be a number"
+        />
+        <p class="help-block"></p>
+    </div>
+</div>
+<div class="form-actions">
+    <button type="submit" class="btn btn-primary">
+        Add Product <i class="icon-ok icon-white"></i>
+    </button>
+</div>
+</form>
+
