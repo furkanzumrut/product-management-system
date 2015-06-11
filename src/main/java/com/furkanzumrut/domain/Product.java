@@ -20,7 +20,8 @@ public class Product extends NamedEntity{
     @Column(name="price")
     private int price;
 
-
+    @Column(name="user_name")
+    private String userName;
 
 
     public Product(){
@@ -35,15 +36,11 @@ public class Product extends NamedEntity{
         this.price = price;
     }
 
-
-    @ManyToOne
-    private User user;
-
-    public User getUser() {
-        return user;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUserId(User user) {
-        this.user = user;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

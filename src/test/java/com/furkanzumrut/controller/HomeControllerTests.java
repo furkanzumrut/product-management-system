@@ -66,7 +66,7 @@ public class HomeControllerTests {
         Product p = new Product();
         p.setPrice(1000);
         p.setId(1);
-        p.setUserId(u);
+
         p.setName("Iphone");
 
         productServiceMock.saveProduct(p);
@@ -78,7 +78,7 @@ public class HomeControllerTests {
         List<Product> productList = productService.getAllProducts();
 //        Assert.assertEquals(productList.get(1).getUserId(),1);
 
-                System.out.println(productList.get(1).getUser().toString());
+
     }
 
 

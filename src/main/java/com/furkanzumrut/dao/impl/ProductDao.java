@@ -3,7 +3,6 @@ package com.furkanzumrut.dao.impl;
 import com.furkanzumrut.dao.IProductDao;
 import com.furkanzumrut.domain.Product;
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,9 +47,9 @@ public class ProductDao implements IProductDao  {
         Session session = getSessionFactory().getCurrentSession();
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Product.class);
-        Query query = session.createSQLQuery("SELECT * FROM t_product").addEntity(Product.class);
+
         @SuppressWarnings("unchecked")
-        List<Product> products = (List<Product>) query.list();
+        List<Product> products = (List<Product>) criteria.list();
         session.getTransaction().commit();
         return products;
     }

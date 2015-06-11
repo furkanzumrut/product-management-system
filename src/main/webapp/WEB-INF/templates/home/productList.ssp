@@ -3,7 +3,7 @@
 <% import java.util %>
 <%--//<%@ val names = Vector("Bob", "Fred", "Joe", "Julia", "Kim") %>--%>
 <%--//<%@ val product : Product %>--%>
-<%@ val products : java.util.List[Product] %>
+<%@ val products : java.util.List[Object] %>
 
 
 <div class="container">
@@ -22,10 +22,10 @@
             <tbody>
                 #for (product <- products)
                     <tr>
-                        <td>${product.getName}</td>
                         <td>${product.getId}</td>
+                        <td>${product.getName}</td>
                         <td>${product.getPrice}</td>
-                        <td>${product.getUser.getFirstName} ${product.getUser.getLastName}</td>
+                        <td>${product.getUserName}</td>
                     </tr>
                 #end
             </tbody>
