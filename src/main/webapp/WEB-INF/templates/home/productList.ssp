@@ -3,7 +3,7 @@
 <% import java.util %>
 <%--//<%@ val names = Vector("Bob", "Fred", "Joe", "Julia", "Kim") %>--%>
 <%--//<%@ val product : Product %>--%>
-<%@ val products : java.util.List[Object] %>
+<%@ val products : java.util.List[Product] %>
 
 
 <div class="container">
@@ -16,7 +16,9 @@
                     <th>Product Id</th>
                     <th>Product Name</th>
                     <th>Product Price</th>
+                    <th>Product Amount</th>
                     <th>Added By</th>
+                    <th>Added Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,7 +27,9 @@
                         <td>${product.getId}</td>
                         <td>${product.getName}</td>
                         <td>${product.getPrice}</td>
+                        <td>${product.getAmount}</td>
                         <td>${product.getUserName}</td>
+                        <td>${product.getDate}</td>
                     </tr>
                 #end
             </tbody>

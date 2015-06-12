@@ -12,7 +12,13 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="hibernate.current_session_context_class">thread</property>
+        <!--<property name="hibernate.cache.use_query_cache">true</property>-->
+        <!--<property name="hibernate.cache.use_second_level_cache">true</property>-->
+        <!--<property name="hibernate.cache.region.factory_class">-->
+            <!--org.hibernate.cache.EhCacheRegionFactory</property>-->
+
         <mapping class="com.furkanzumrut.domain.Product"/>
         <mapping class="com.furkanzumrut.domain.User" />
+        <mapping class="com.furkanzumrut.domain.ProductImage" />
     </session-factory>
 </hibernate-configuration>

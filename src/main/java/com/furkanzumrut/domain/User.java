@@ -1,10 +1,12 @@
 package com.furkanzumrut.domain;
 
 
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 /**
@@ -14,7 +16,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_user")
 public class User extends Person {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +37,9 @@ public class User extends Person {
     @NotEmpty
     private String userPassword;
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "added_date", unique = true, nullable = false, length = 10)
+    private Date date;
 
 
     public String getUserPassword() {
@@ -70,13 +74,14 @@ public class User extends Person {
         this.userId = userId;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", userMail='" + userMail + '\'' +
-                ", userPassword='" + userPassword + '\'' +
-                '}';
+
+    public Date getDate() {
+        return date;
     }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+
 }

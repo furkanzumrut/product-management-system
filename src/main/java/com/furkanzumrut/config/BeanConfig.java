@@ -3,13 +3,19 @@ package com.furkanzumrut.config;
 import com.furkanzumrut.dao.impl.ProductDao;
 import com.furkanzumrut.dao.impl.UserDao;
 import com.furkanzumrut.domain.Product;
+import com.furkanzumrut.domain.ProductImage;
 import com.furkanzumrut.domain.User;
 import com.furkanzumrut.service.ProductService;
 import com.furkanzumrut.service.UserService;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.ehcache.EhCacheCacheManager;
+import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 
@@ -27,7 +33,7 @@ public class BeanConfig {
     public SessionFactory getSessionFactory(DataSource dataSource) {
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
         sessionBuilder.addProperties(getHibernateProperties());
-        sessionBuilder.addAnnotatedClasses(Product.class,User.class);
+        sessionBuilder.addAnnotatedClasses(Product.class,User.class, ProductImage.class);
         return sessionBuilder.buildSessionFactory();
     }
     private Properties getHibernateProperties() {
@@ -36,6 +42,10 @@ public class BeanConfig {
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         properties.put("hibernate.hbm2ddl.auto","update");
         properties.put("hibernate.current_session_context_class","thread");
+        // second-level cache:
+//        properties.setProperty("hibernate.cache.use_second_level_cache", "true");
+//        properties.setProperty("hibernate.cache.use_query_cache","true");
+//        properties.setProperty("hibernate.cache.region.factory_class", "org.hibernate.cache.EhCacheRegionFactory");
         return properties;
     }
 
@@ -66,24 +76,24 @@ public class BeanConfig {
 
 
 
-    @Autowired
-    @Bean(name = "productDao")
-    public ProductDao getProductDao(SessionFactory sessionFactory) {
-        return new ProductDao(sessionFactory);
-    }
+//    @Autowired
+//    @Bean(name = "productDao")
+//    public ProductDao getProductDao(SessionFactory sessionFactory) {
+//        return new ProductDao(sessionFactory);
+//    }
 
-    @Autowired
-    @Bean(name="productService")
-    public ProductService getProductService(ProductDao productDao){ return new ProductService(productDao);}
+//    @Autowired
+//    @Bean(name="productService")
+//    public ProductService getProductService(ProductDao productDao){ return new ProductService(productDao);}
 
 
-    @Autowired
-    @Bean(name= "userDao")
-    public UserDao getUserDao(SessionFactory sessionFactory) { return new UserDao(sessionFactory);}
-
-    @Autowired
-    @Bean(name="userService")
-    public UserService getUserService(UserDao userDao){ return new UserService(userDao);}
+//    @Autowired
+//    @Bean(name= "userDao")
+//    public UserDao getUserDao(SessionFactory sessionFactory) { return new UserDao(sessionFactory);}
+//
+//    @Autowired
+//    @Bean(name="userService")
+//    public UserService getUserService(UserDao userDao){ return new UserService(userDao);}
 
     @Bean(name = "dataSource")
     public DataSource getDataSource() {
@@ -97,4 +107,6 @@ public class BeanConfig {
 
         return dataSource;
     }
+
+
 }

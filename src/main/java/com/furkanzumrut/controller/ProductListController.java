@@ -2,6 +2,7 @@
 package com.furkanzumrut.controller;
 
 import com.furkanzumrut.domain.Product;
+import com.furkanzumrut.service.IProductService;
 import com.furkanzumrut.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ public class ProductListController {
 
 
     @Autowired
-    protected ProductService productService;
+    protected IProductService productService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getProducts() {

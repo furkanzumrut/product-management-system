@@ -3,28 +3,39 @@ package com.furkanzumrut.dao.impl;
 import com.furkanzumrut.dao.IProductDao;
 import com.furkanzumrut.domain.Product;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by furkanzumrut on 6/7/15.
  */
+
+@Repository("productDao")
+@Primary
 public class ProductDao implements IProductDao  {
 
-
+    @Autowired
     private SessionFactory sessionFactory;
 
-    @Autowired
-    public ProductDao(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+
+    public ProductDao() {
+
     }
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
+
+
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
@@ -42,14 +53,14 @@ public class ProductDao implements IProductDao  {
         session.getTransaction().commit();
     }
 
+
     @Override
     public List<Product> findAll(){
         Session session = getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(Product.class);
-
+        Query query = session.createQuery("FROM Product");
         @SuppressWarnings("unchecked")
-        List<Product> products = (List<Product>) criteria.list();
+        List<Product> products = (List<Product>) query.list();
         session.getTransaction().commit();
         return products;
     }
