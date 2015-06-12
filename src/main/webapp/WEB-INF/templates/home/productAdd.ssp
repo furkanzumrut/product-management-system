@@ -1,6 +1,12 @@
 <% attributes("title") = "Adding Product - Simple Product Management System" %>
 <div style="display: none" id="error" class="alert alert-danger error"></div>
 <div style="display: none" id="info" class="success alert alert-success"></div>
+
+<div class="modal-header">
+
+<h3>Product Adding Form</h3>
+</div>
+
 <form class="form-horizontal" novalidate>
 <div class="control-group">
 <label class="control-label">Product Name:</label>
@@ -16,13 +22,14 @@
 <div class="control-group">
 <label class="control-label">Product Price:</label>
 <div class="controls">
-    <input id="price"
+    <input name="price" id="price"
         required
         data-validation-required-message="Please fill out this field"
         type="text"
         data-validation-number-message="Must be a number"
         />
-        <p class="help-block"></p>
+    <p class="help-block"></p>
+
     </div>
 </div>
 <div class="control-group">

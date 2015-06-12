@@ -5,11 +5,9 @@ import com.furkanzumrut.domain.Product;
 import com.furkanzumrut.domain.User;
 import com.furkanzumrut.service.ProductService;
 import com.furkanzumrut.service.UserService;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -62,7 +60,6 @@ public class HomeControllerTests {
         u.setLastName("Zumrut");
         u.setGender("Male");
         u.setUserId(1);
-
         Product p = new Product();
         p.setPrice(1000);
         p.setId(1);

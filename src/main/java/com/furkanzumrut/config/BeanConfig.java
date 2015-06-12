@@ -1,21 +1,13 @@
 package com.furkanzumrut.config;
 
-import com.furkanzumrut.dao.impl.ProductDao;
-import com.furkanzumrut.dao.impl.UserDao;
 import com.furkanzumrut.domain.Product;
 import com.furkanzumrut.domain.ProductImage;
 import com.furkanzumrut.domain.User;
-import com.furkanzumrut.service.ProductService;
-import com.furkanzumrut.service.UserService;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.ehcache.EhCacheCacheManager;
-import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 
@@ -49,6 +41,7 @@ public class BeanConfig {
         return properties;
     }
 
+
 //    @Bean(name = "validator")
 //    public LocalValidatorFactoryBean validator()
 //    {
@@ -57,12 +50,12 @@ public class BeanConfig {
 //        return bean;
 //    }
 
-//    @Bean
-//    public ReloadableResourceBundleMessageSource messageSource() {
-//        ReloadableResourceBundleMessageSource resourceBundleMessageSource = new ReloadableResourceBundleMessageSource();
-//        resourceBundleMessageSource.setBasename("classpath:/templates/validationMessages/messages");
-//        return resourceBundleMessageSource;
-//    }
+    @Bean
+    public ReloadableResourceBundleMessageSource messageSource() {
+        ReloadableResourceBundleMessageSource resourceBundleMessageSource = new ReloadableResourceBundleMessageSource();
+        resourceBundleMessageSource.setBasename("classpath:/templates/validationMessages/messages");
+        return resourceBundleMessageSource;
+    }
 
 //    @Autowired
 //    @Bean(name = "transactionManager")
@@ -75,25 +68,6 @@ public class BeanConfig {
 
 
 
-
-//    @Autowired
-//    @Bean(name = "productDao")
-//    public ProductDao getProductDao(SessionFactory sessionFactory) {
-//        return new ProductDao(sessionFactory);
-//    }
-
-//    @Autowired
-//    @Bean(name="productService")
-//    public ProductService getProductService(ProductDao productDao){ return new ProductService(productDao);}
-
-
-//    @Autowired
-//    @Bean(name= "userDao")
-//    public UserDao getUserDao(SessionFactory sessionFactory) { return new UserDao(sessionFactory);}
-//
-//    @Autowired
-//    @Bean(name="userService")
-//    public UserService getUserService(UserDao userDao){ return new UserService(userDao);}
 
     @Bean(name = "dataSource")
     public DataSource getDataSource() {

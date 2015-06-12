@@ -1,7 +1,6 @@
 package com.furkanzumrut.domain;
 
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -38,7 +37,7 @@ public class User extends Person {
     private String userPassword;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "added_date", unique = true, nullable = false, length = 10)
+    @Column(name = "added_date", unique = false, nullable = false, length = 10)
     private Date date;
 
 

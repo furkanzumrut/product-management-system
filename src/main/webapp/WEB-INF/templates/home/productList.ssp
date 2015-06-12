@@ -5,9 +5,11 @@
 <%--//<%@ val product : Product %>--%>
 <%@ val products : java.util.List[Product] %>
 
+<div class="modal-header">
 
-<div class="container">
-<div class="row">
+<h3>Product List</h3>
+</div>
+
 
     <div class="col-md-13">
         <table class="table table-list-search">
@@ -35,5 +37,5 @@
             </tbody>
         </table>
     </div>
-</div>
-</div>
+
+

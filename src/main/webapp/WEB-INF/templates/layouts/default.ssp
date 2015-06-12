@@ -6,6 +6,7 @@
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<%--<meta name="_csrf" content="${_csrf.token}"/>--%>
 <title>${title}</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -40,17 +41,22 @@
 
                         <li><a href="/">Home</a></li>
                         <li><a href="/products">Product List</a></li>
-                        <li><a href="/productadd">Add A Product</a></li>
+                        <li><a href="/member/productadd">Add A Product</a></li>
                     </ul>
 
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/login?logout">Logout</a></li>
+                        <li><a href="#"><% render("time.ssp") %></a></li>
 
+                    </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
 
         </div>
         </header>
-        <div class="container margin-top-20" role="main" >
+        <div class="container" role="main" >
 
         ${unescape(body)}
 
@@ -63,9 +69,13 @@
 
 
     </body>
-<footer><div class="container margin-top-20"><div class="panel panel-default">
+<div id="wrap">
+    <div class="container">
+<footer><div class="margin-top-20"><div class="panel panel-default">
     <div class="panel-body">
         Copyright
     </div>
 </div></div></footer>
+    </div>
+</div>
 </html>

@@ -3,10 +3,7 @@ package com.furkanzumrut.domain;
 import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import java.util.Date;
-import java.util.Collection;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -38,7 +35,7 @@ public class Product extends NamedEntity{
 
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "added_date", unique = true, nullable = false, length = 10)
+    @Column(name = "added_date", unique = false, nullable = false, length = 10)
     private Date date;
 
     public Product(){
@@ -49,7 +46,7 @@ public class Product extends NamedEntity{
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
