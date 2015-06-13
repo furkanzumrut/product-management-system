@@ -5,7 +5,7 @@
 <h1>Welcome!</h1>
 <p>Click the buttons above to see, edit products.</p>
 </div>
-<div class="bs-callout bs-callout-primary">
+<div class="bs-callout bs-callout-default">
 <h3>Main Page</h3>
 <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae leo massa. Sed placerat in libero eu feugiat. Mauris ac sem velit. Etiam iaculis rhoncus vestibulum. Pellentesque magna enim, tristique a ultrices vel, lobortis ac nibh. Nullam id venenatis quam, eu feugiat purus. Nullam eu tristique elit. Quisque venenatis mollis sem a tempus.</h4>
 </div>

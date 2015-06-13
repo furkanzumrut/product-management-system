@@ -11,8 +11,11 @@
 </div>
 
 
+
     <div class="col-md-13">
-        <table class="table table-list-search">
+
+        <table class="table table-list-search well margin-top-15">
+
             <thead>
                 <tr>
                     <th>Product Id</th>

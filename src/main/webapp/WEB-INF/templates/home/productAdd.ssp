@@ -7,7 +7,10 @@
 <h3>Product Adding Form</h3>
 </div>
 
-<form class="form-horizontal" novalidate>
+<form class="form-horizontal well" novalidate>
+<div id="legend">
+<legend class="">Product Details</legend>
+</div>
 <div class="control-group">
 <label class="control-label">Product Name:</label>
 <div class="controls">
